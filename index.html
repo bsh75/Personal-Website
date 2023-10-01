@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Title</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Include your main CSS file here -->
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Expandable Sections</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
 <body>
-    <!-- Header Section -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Expandable Sections Example</h1>
     </header>
-
-    <!-- Main Content Section -->
     <main>
-        <section>
-            <h1>Welcome to Your Website</h1>
-            <p>This is the main content section of your website.</p>
+        <section class="expandable">
+            <h2 class="header-button">Health<span class="arrow">▶</span></h2>
+            <div class="content">
+                <p>This is the content of Section 1.</p>
+            </div>
+        </section>
+        <section class="expandable">
+            <h2 class="header-button">Wealth<span class="arrow">▶</span></h2>
+            <div class="content">
+                <p>This is the content of Section 2.</p>
+            </div>
+        </section>
+        <section class="expandable">
+            <h3 class="header-button">Projects<span class="arrow">▶</span></h3>
+            <div class="content">
+                <p>This is the content of Section 3.</p>
+            </div>
+        </section>
+        <section class="expandable">
+    <h4 class="header-button">Learnings<span class="arrow">▶</span></h4>
+            <div class="content">
+                <p>This is the content of Section 4.</p>
+            </div>
         </section>
     </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2023 Your Website Name</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="js/script.js"></script> <!-- Include your main JavaScript file here -->
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+/* styles.css */
+
+/* Set the default font family and remove body margin and padding */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the header with a blue background, white text, and padding */
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Style the main content area with padding */
+main {
+    padding: 20px;
+}
+
+/* Style the sections with margin, padding, border, and relative positioning */
+section {
+    margin: 20px 0; /* Adjust margin to create space between sections */
+    padding: 20px;
+    border: 1px solid #ddd;
+    position: relative; /* For positioning the button and content */
+}
+
+/* Style the toggle button with a blue background, white text, and positioning */
+.toggle-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: absolute; /* Position the button relative to its parent section */
+    top: 10px; /* Adjust the top position of the button */
+    right: 10px; /* Adjust the right position of the button */
+}
+
+/* Initially hide the content of expandable sections */
+.expandable .content {
+    display: none;
+}
+
+/* Add styles for the header container */
+.header-content {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer; /* Add a pointer cursor to indicate interactivity */
+}
+
+.header-button {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    cursor: pointer;
+    caret-color: transparent;
+}
+
+.arrow {
+    font-size: 16px; /* Adjust the size of the arrow */
+    margin-left: 10px; /* Add spacing between the text and the arrow */
+    display: inline-block;
+    transition: transform 0.3s ease; /* Smooth transition for arrow rotation */
+    transform: rotate(0deg); /* Default state: arrow points right */
+}
+
+.expandable.expanded .arrow {
+    transform: rotate(90deg); /* Rotate the arrow to point down when expanded */
+}
