@@ -13,12 +13,9 @@
     <main class="content-column">
         
         <div id="summary-overview">
-            <section class="summary-header border-rounded main-background-color">
-                <div class="summary-button border-rounded secondary-background-color">
+            <section id="summary-header" class="border-rounded main-background-color">
+                <div class="summary-button button border-rounded secondary-background-color">
                     Health
-                </div>
-                <div class="initially-hidden">
-                    <p>Content of Health Summary</p>
                 </div>
                 <div class="summary-button border-rounded secondary-background-color">
                     Projects
@@ -30,28 +27,33 @@
                     Finance
                 </div>
             </section>
+            <section id="summary-display">
+                <div class="summary-content initially-hidden">
+                    <p>Content of Health Summary</p>
+                </div>
+            </section>
         </div>
         <section class="expandable">
             <h2 class="header-button">Health - Detailed<span class="arrow">▶</span></h2>
-            <div class="initially-hidden">
+            <div class="content">
                 <p>This is the content of Section 1.</p>
             </div>
         </section>
         <section class="expandable">
             <h2 class="header-button">Finance - Detailed<span class="arrow">▶</span></h2>
-            <div class="initially-hidden">
+            <div class="content">
                 <p>This is the content of Section 2.</p>
             </div>
         </section>
         <section class="expandable">
             <h3 class="header-button">Projects - Detailed<span class="arrow">▶</span></h3>
-            <div class="initially-hidden">
+            <div class="content">
                 <p>This is the content of Section 3.</p>
             </div>
         </section>
         <section class="expandable">
     <h4 class="header-button">Philosophy - Detailed<span class="arrow">▶</span></h4>
-            <div class="initially-hidden">
+            <div class="content">
                 <p>This is the content of Section 4.</p>
             </div>
         </section>

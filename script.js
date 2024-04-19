@@ -4,7 +4,7 @@ const headerButtons = document.querySelectorAll('.header-button');
 headerButtons.forEach((header) => {
     header.addEventListener('click', () => {
         const section = header.parentElement;
-        const content = section.querySelector('.intitially-hidden');
+        const content = section.querySelector('.content');
 
         if (content.style.display === 'none' || content.style.display === '') {
             content.style.display = 'block';
@@ -21,7 +21,7 @@ const summaryButtons = document.querySelectorAll('.summary-button');
 headerButtons.forEach((header) => {
     header.addEventListener('click', () => {
         const section = header.parentElement;
-        const content = section.querySelector('.content');
+        const content = section.querySelector('.initially-hidden');
 
         if (content.style.display === 'none' || content.style.display === '') {
             content.style.display = 'block';
