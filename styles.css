@@ -28,21 +28,27 @@ main {
 /* Style the sections with margin, padding, border, and relative positioning */
 section {
     margin: 20px 0; /* Adjust margin to create space between sections */
-    padding: 20px;
     border: 2px solid rgba(255, 0, 0, 0.5);
     position: relative; /* For positioning the button and content */
 }
 
-#summary-header {
+#slider-tabs {
+    margin: 20px 20px;
     display:flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.slider-content {
+    padding: 10px;
 }
 
 #summary-overview {
     text-align: center;
 }
 
-.summary-button {
+.slider-button {
     height: 30px;
     padding: 10px;
     align-content: center;
@@ -56,7 +62,10 @@ section {
     background-color: rgba(0, 0, 200, 0.25);
 }
 
-.secondary-background-color {
+.button-background-color {
+    background-color: rgba(50, 50, 207, 0.5);
+}
+.button-active-background-color {
     background-color: rgba(50, 50, 207, 0.5);
 }
 

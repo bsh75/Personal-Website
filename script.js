@@ -1,4 +1,6 @@
 // script.js
+
+// Code to toggle the visibility of vertically expandable sections
 const headerButtons = document.querySelectorAll('.header-button');
 
 headerButtons.forEach((header) => {
@@ -16,12 +18,13 @@ headerButtons.forEach((header) => {
     });
 });
 
+// Code to toggle the visibility of the horiontal dashboard sections (IN PROGRESS......)
 const summaryButtons = document.querySelectorAll('.summary-button');
 
-headerButtons.forEach((header) => {
+summaryButtons.forEach((summaryButton) => {
     header.addEventListener('click', () => {
-        const section = header.parentElement;
-        const content = section.querySelector('.initially-hidden');
+        const contentID = "#".concat(summaryButton.id.split("-").charAt(0), "-summary-content")
+        const content = document.querySelector(contentID);
 
         if (content.style.display === 'none' || content.style.display === '') {
             content.style.display = 'block';
