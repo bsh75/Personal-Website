@@ -1,5 +1,10 @@
 /* styles.css */
 
+/* Properties for All  */
+* {
+    border: 1px solid black;
+}
+
 /* Set the default font family and remove body margin and padding */
 body {
     font-family: Arial, sans-serif;
@@ -24,25 +29,44 @@ main {
 section {
     margin: 20px 0; /* Adjust margin to create space between sections */
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 2px solid rgba(255, 0, 0, 0.5);
     position: relative; /* For positioning the button and content */
 }
 
-/* Style the toggle button with a blue background, white text, and positioning */
-.toggle-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    position: absolute; /* Position the button relative to its parent section */
-    top: 10px; /* Adjust the top position of the button */
-    right: 10px; /* Adjust the right position of the button */
+.summary-header {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+#summary-overview {
+    text-align: center;
+}
+
+.summary-button {
+    height: 30px;
+    padding: 10px;
+    align-content: center;
+}
+
+.border-rounded {
+    border-radius: 9999px;
+}
+
+.main-background-color {
+    background-color: rgba(0, 0, 200, 0.25);
+}
+
+.secondary-background-color {
+    background-color: rgba(50, 50, 207, 0.5);
 }
 
 /* Initially hide the content of expandable sections */
-.expandable .content {
+.initially-hidden {
     display: none;
+}
+
+.expanded .initially-hidden{
+    display: block;
 }
 
 /* Add styles for the header container */
