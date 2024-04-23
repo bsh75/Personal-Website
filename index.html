@@ -5,19 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Expandable Sections</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 <body>
     <header>
-        <h1>Expandable Sections Example</h1>
+        <h1>Make this into navigation</h1>
     </header>
     <main class="content-column">
         
         <div id="summary-overview">
-            <section id="slider-tabs" class="border-rounded main-background-color">
-                <div class="slider-button button border-rounded button-background-color">
-                    Health
+            <section class="slider-container border-rounded">
+                <div class="slider-button border-rounded">
+                    <p>Health</p>
                 </div>
-                <div class="slider-button button border-rounded button-background-color">
+                <div class="slider-button border-rounded button-background-color">
                     Projects
                 </div>
                 <div class="slider-button border-rounded button-background-color">
@@ -27,39 +28,61 @@
                     Finance
                 </div>
             </section>
-            <section id="slider-display">
+            <section class="slider-display">
                 <div class="slider-content">
-                    <p>Initial Displayed Content (am thinking to show a snippet/section from each category which when selected, expands to fill the whole frame)</p>
+                    <div>
+                        <img src="imgs/overview-img.png" alt="fitness-logo"/>
+                    </div>
+                    <p>Overview displaid on startup </p>
                 </div>
-                <div class="slider-content initially-hidden">
-                    <p>Content of Health Summary</p>
+                <div class="slider-content">
+                    <div>
+                        <img src="imgs/fitness_logo_watchos.png" alt="fitness-logo"/>
+                    </div>
+                    <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
                 </div>
-                <div class="slider-content initially-hidden">
-                    <p>Content of Projects Summary</p>
+                <div class="slider-content">
+                    <div>
+                        <img src="imgs/finance-img.png" alt="finance-logo"/>
+                    </div>
+                    <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
                 </div>
+                <div class="slider-content">
+                    <div>
+                        <img src="imgs/projects-img.png" alt="projects-logo"/>
+                    </div>
+                    <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
+                </div>
+                <div class="slider-content">
+                    <div>
+                        <img src="imgs/philosophy-img.jpg" alt="philosophy-logo"/>
+                    </div>
+                    <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
+                </div>
+                
             </section>
         </div>
         <section class="expandable">
             <h2 class="header-button">Health - Detailed<span class="arrow">▶</span></h2>
-            <div class="content">
+            <div class="content initially-hidden">
                 <p>This is the content of Section 1.</p>
             </div>
         </section>
         <section class="expandable">
             <h2 class="header-button">Finance - Detailed<span class="arrow">▶</span></h2>
-            <div class="content">
+            <div class="content initially-hidden">
                 <p>This is the content of Section 2.</p>
             </div>
         </section>
         <section class="expandable">
             <h3 class="header-button">Projects - Detailed<span class="arrow">▶</span></h3>
-            <div class="content">
+            <div class="content initially-hidden">
                 <p>This is the content of Section 3.</p>
             </div>
         </section>
         <section class="expandable">
     <h4 class="header-button">Philosophy - Detailed<span class="arrow">▶</span></h4>
-            <div class="content">
+            <div class="content initially-hidden">
                 <p>This is the content of Section 4.</p>
             </div>
         </section>
