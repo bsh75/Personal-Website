@@ -89,7 +89,7 @@ section {
     /* max-height: 200px; */
 }
 
-.slider-content div {
+.image-container {
     border-radius: 100%;
     overflow: hidden;
     max-height: 200px;
@@ -99,11 +99,13 @@ section {
 
 .slider-content img {
     /* width: 100%; */
-    object-fit: fill;
+    object-fit: scale-down;
 }
 
-.slider-content p {
-    max-width: 50%;
+.slider-text {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
 }
 
 #summary-overview {
@@ -121,12 +123,12 @@ section {
 }
 
 /* Initially hide the content of expandable sections */
-.initially-hidden {
+.hidden {
     display: none;
 }
 
-.expanded .initially-hidden{
-    display: block;
+.show-slider-content {
+    display: flex;
 }
 
 /* Add styles for the header container */

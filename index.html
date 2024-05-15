@@ -15,69 +15,88 @@
         
         <div id="summary-overview">
             <section class="slider-container border-rounded">
-                <button class="slider-tab border-rounded">
+                <button data-target="health-slide" class="slider-tab border-rounded">
                     <p>Health</p>
                 </button>
-                <button class="slider-tab border-rounded">
+                <button data-target="projects-slide" class="slider-tab border-rounded projects">
                     Projects
                 </button>
-                <button class="slider-tab border-rounded">
+                <button data-target="philosophy-slide" class="slider-tab border-rounded philosophy">
                     Philosophy
                 </button>
-                <button class="slider-tab border-rounded">
+                <button data-target="finance-slide" class="slider-tab border-rounded finance">
                     Finance
                 </button>
             </section>
             <section class="slider-display">
-                <div class="slider-content"><div>
-                    <img src="imgs/overview-img.png" alt="fitness-logo"/>
+                <div id="overview-slide" class="slider-content">
+                    <div class="image-container">
+                    <img src="imgs/overview-img.png" alt="overview-logo"/>
+                    </div>
+                    <div class="slider-text">
+                        <h3>Overview Slide</h3>
+                        <p>Overview displaid on startup </p>
+                    </div>
                 </div>
-                    <p>Overview displaid on startup </p>
-                </div>
-                <div class="slider-content"><div>
+                <div id="health-slide" class="slider-content">
+                    <div class="image-container">
                     <img src="imgs/fitness_logo_watchos.png" alt="fitness-logo"/>
+                    </div>
+                    <div class="slider-text">
+                        <h3>Health Slide</h3>
+                        <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
+                    </div>
                 </div>
-                    <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
+                <div id="projects-slide" class="slider-content">
+                    <div class="image-container">
+                        <img src="imgs/projects-img.png" alt="projects-logo"/>
+                    </div>
+                    <div class="slider-text">
+                        <h3>Projects Slide</h3>
+                        <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
+                    </div>
                 </div>
-                <div class="slider-content"><div>
+                <div id="philosophy-slide" class="slider-content">
+                    <div class="image-container">
+                        <img src="imgs/philosophy-img.jpg" alt="philosophy-logo"/>
+                    </div>
+                    <div class="slider-text">
+                        <h3>Philosophy Slide</h3>
+                        <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
+                    </div>
+                </div>
+                <div id="finance-slide" class="slider-content">
+                    <div class="image-container">
                     <img src="imgs/finance-img.png" alt="finance-logo"/>
+                    </div>
+                    <div class="slider-text">
+                        <h3>Finance Slide</h3>
+                        <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
+                    </div>
                 </div>
-                    <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
-                </div>
-                <div class="slider-content"><div>
-                    <img src="imgs/projects-img.png" alt="projects-logo"/>
-                </div>
-                    <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
-                </div>
-                <div class="slider-content"><div>
-                    <img src="imgs/philosophy-img.jpg" alt="philosophy-logo"/>
-                </div>
-                    <p>Make this a image/snapshot paired with details. Stacked vert until width exceeds x.</p>
-                </div>
-                
             </section>
         </div>
         <section class="expandable">
             <h2 class="header-button">Health - Detailed<span class="arrow">▶</span></h2>
-            <div class="content initially-hidden">
+            <div class="content hidden">
                 <p>This is the content of Section 1.</p>
             </div>
         </section>
         <section class="expandable">
             <h2 class="header-button">Finance - Detailed<span class="arrow">▶</span></h2>
-            <div class="content initially-hidden">
+            <div class="content hidden">
                 <p>This is the content of Section 2.</p>
             </div>
         </section>
         <section class="expandable">
             <h3 class="header-button">Projects - Detailed<span class="arrow">▶</span></h3>
-            <div class="content initially-hidden">
+            <div class="content hidden">
                 <p>This is the content of Section 3.</p>
             </div>
         </section>
         <section class="expandable">
     <h4 class="header-button">Philosophy - Detailed<span class="arrow">▶</span></h4>
-            <div class="content initially-hidden">
+            <div class="content hidden">
                 <p>This is the content of Section 4.</p>
             </div>
         </section>
