@@ -50,6 +50,7 @@ header {
 
 /* Style the main content area with padding */
 main {
+    max-width: 100%;
     padding: 20px;
     background-color: var(--bg-color);
 }
@@ -60,6 +61,12 @@ section {
     margin: 20px 0; /* Adjust margin to create space between sections */
     border: 2px solid rgba(255, 0, 0, 0.5);
     position: relative; /* For positioning the button and content */
+}
+
+.calendar-container {
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .slider-container {
@@ -90,6 +97,7 @@ section {
 }
 
 .image-container {
+    max-width: 100%;
     border-radius: 100%;
     overflow: hidden;
     max-height: 200px;
