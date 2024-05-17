@@ -18,7 +18,7 @@ headerButtons.forEach((headerbutton) => {
     });
 });
 
-// Code to toggle the visibility of the horiontal dashboard sections (IN PROGRESS......)
+// Code to toggle the visibility of the horiontal dashboard sections
 const sliderTabs = document.querySelectorAll('.slider-tab')
 const allSliderContents = document.querySelectorAll('.slider-content')
 
@@ -40,4 +40,3 @@ sliderTabs.forEach(function (sliderButton) {
 })
 
 
-// Handle the weather

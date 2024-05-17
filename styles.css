@@ -63,7 +63,7 @@ section {
     position: relative; /* For positioning the button and content */
 }
 
-.widjet-container {
+#widget-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -72,7 +72,7 @@ section {
     overflow: hidden;
 }
 
-.weather {
+#weather-summary {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,6 +88,10 @@ section {
     height: 100px;
 }
 
+#weather-detailed {
+    display: none;
+}
+
 .calender {
     width: 100%;
     height: 100%;
@@ -101,12 +105,15 @@ section {
     padding: 0px;
     background-color: var(--primary-color);
 }
+.button {
+    padding: 2px;
+}
 
-.slider-tab:active {
+.button:active {
     background-color: var(--secondary-color);
 }
 
-.slider-tab:hover {
+.button:hover {
     cursor: pointer;
     opacity: 0.7;
 }
@@ -169,12 +176,6 @@ section {
     padding: 0;
     font-size: 24px;
     cursor: pointer;
-    caret-color: transparent;
-}
-
-.button {
-    cursor: pointer;
-    caret-color: transparent;
 }
 
 .arrow {
@@ -193,7 +194,7 @@ section {
     .slider-content {
         flex-direction: row;
     }
-    .widjet-container {
+    #widget-container {
         flex-direction: row;
     }
 }

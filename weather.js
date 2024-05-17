@@ -17,9 +17,9 @@ function getWeather(lat, lon) {
 
 // Function to display the weather data on the webpage
 function displayWeather(data) {
-    const weatherDiv = document.getElementById('weather'); // Get the weather div element
+    const weatherSummary = document.getElementById('weather-summary'); // Get the weather div element
     const { name, main, weather } = data; // Destructure the needed data from the response
-    
+    console.log(data)
     // Create the HTML content to display the weather data
     const weatherHTML = `
         <h2>${name}</h2>
@@ -29,13 +29,13 @@ function displayWeather(data) {
         <p>Humidity: ${main.humidity}%</p>
     `;
     
-    weatherDiv.innerHTML = weatherHTML; // Set the innerHTML of the weather div to the weather data
+    weatherSummary.innerHTML = weatherHTML; // Set the innerHTML of the weather div to the weather data
 }
 
 // Function to handle errors from the Geolocation API
 function handleLocationError(error) {
     console.error('Geolocation error:', error); // Log the error to the console
-    document.getElementById('weather').innerHTML = '<h2>Unable to retrieve location</h2>'; // Display an error message on the webpage
+    document.getElementById('weather-summary').innerHTML = '<h2>Unable to retrieve location</h2>'; // Display an error message on the webpage
 }
 
 // Function to get the user's current location
@@ -50,8 +50,26 @@ function getLocation() {
             handleLocationError // Handle any errors in getting the location
         );
     } else {
-        document.getElementById('weather').innerHTML = '<h2>Geolocation is not supported by this browser</h2>'; // Display a message if Geolocation is not supported
+        document.getElementById('weather-summary').innerHTML = '<h2>Geolocation is not supported by this browser</h2>'; // Display a message if Geolocation is not supported
     }
 }
 
 getLocation(); // Call getLocation to start the process of fetching and displaying the weather data
+
+// Weather expansion
+const weatherButton = document.getElementById("weather-expand")
+const weatherSummary = document.getElementById("weather-summary")
+const weatherDetailed = document.getElementById("weather-detailed")
+const widgetContainer = document.getElementById("widget-container")
+
+weatherButton.addEventListener('click', function () {
+    if (weatherDetailed.style.display === 'none' || weatherDetailed.style.display === '') {
+        weatherDetailed.style.display = 'block';
+        weatherSummary.style.display = 'none';
+        widgetContainer.style.flexDirection = 'column'
+    } else {
+        weatherDetailed.style.display = 'none';
+        weatherSummary.style.display = 'block';
+        widgetContainer.style.flexDirection = 'row'
+    }
+})

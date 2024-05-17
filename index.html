@@ -12,24 +12,30 @@
         <h1>Make this into navigation</h1>
     </header>
     <main class="content-column">
-        <div class="widjet-container">
-            <div id="weather" class="weather">
-                <h3>Here lies the weather</h3>
+        <div id="widget-container">
+            <div>
+                <button id="weather-expand" class="button">more</button>
+                <div id="weather-summary" class="weather">
+                    <p>JS to put weather info here... this will not be seen</p>
+                </div>
+                <div id="weather-detailed">
+                    <h3>Here the full detailed weather information will go</h3>
+                </div>
             </div>
             <iframe class="calender" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FTokyo&bgcolor=%23ffffff&showTitle=0&showPrint=0&showCalendars=0&showTz=0&mode=WEEK&src=ZDQ5ZGMyM2RlMTUwYzkyMDE5NDk4YzMzODU3Y2IyZWQyMTU3MTI5YmNkMzgyZmJlMjQyMzQ1ZmQyNzY0MTlmMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23D81B60" style="border:solid 1px #777" frameborder="0" scrolling="yes"></iframe>
         </div>
         <div id="summary-overview">
             <section class="slider-container border-rounded">
-                <button data-target="health-slide" class="slider-tab border-rounded">
+                <button data-target="health-slide" class="slider-tab button border-rounded">
                     <p>Health</p>
                 </button>
-                <button data-target="projects-slide" class="slider-tab border-rounded projects">
+                <button data-target="projects-slide" class="slider-tab button border-rounded projects">
                     Projects
                 </button>
-                <button data-target="philosophy-slide" class="slider-tab border-rounded philosophy">
+                <button data-target="philosophy-slide" class="slider-tab button border-rounded philosophy">
                     Philosophy
                 </button>
-                <button data-target="finance-slide" class="slider-tab border-rounded finance">
+                <button data-target="finance-slide" class="slider-tab button border-rounded finance">
                     Finance
                 </button>
             </section>
