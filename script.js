@@ -38,3 +38,6 @@ sliderTabs.forEach(function (sliderButton) {
         selectSection(targetID)
     })
 })
+
+
+// Handle the weather
