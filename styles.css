@@ -83,6 +83,10 @@ section {
     margin: 0 auto;
 }
 
+#weather-expand {
+    position: absolute;
+}
+
 .weather img {
     width: 100px;
     height: 100px;
@@ -190,6 +194,8 @@ section {
     transform: rotate(90deg); /* Rotate the arrow to point down when expanded */
 }
 
+
+/* Widget container mediaQuery no longer applies after the detailed has been expanded and contracted */
 @media (min-width: 640px) {
     .slider-content {
         flex-direction: row;
