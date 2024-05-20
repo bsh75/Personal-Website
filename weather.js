@@ -66,10 +66,12 @@ weatherButton.addEventListener('click', function () {
     if (weatherDetailed.style.display === 'none' || weatherDetailed.style.display === '') {
         weatherDetailed.style.display = 'block';
         weatherSummary.style.display = 'none';
-        widgetContainer.style.flexDirection = 'column'
+        weatherButton.innerHTML = 'x';
+        widgetContainer.style.flexDirection = 'column';
     } else {
         weatherDetailed.style.display = 'none';
         weatherSummary.style.display = 'block';
-        widgetContainer.style.flexDirection = 'row'
+        widgetContainer.style.flexDirection = '';
+        weatherButton.innerHTML = 'more';
     }
 })

@@ -8,7 +8,7 @@
 
 /* Properties for All  */
 * {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -59,7 +59,7 @@ main {
 /* Style the sections with margin, padding, border, and relative positioning */
 section {
     margin: 20px 0; /* Adjust margin to create space between sections */
-    border: 2px solid rgba(255, 0, 0, 0.5);
+    /* border: 2px solid rgba(255, 0, 0, 0.5); */
     position: relative; /* For positioning the button and content */
 }
 
@@ -70,6 +70,12 @@ section {
     max-height: 100%;
     max-width: 100%;
     overflow: hidden;
+}
+
+#weather-container {
+    display: flex;
+    position: relative;
+
 }
 
 #weather-summary {
@@ -85,6 +91,8 @@ section {
 
 #weather-expand {
     position: absolute;
+    top: 0px;
+    right: 0px
 }
 
 .weather img {
