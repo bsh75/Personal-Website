@@ -75,10 +75,20 @@ section {
 #weather-container {
     display: flex;
     position: relative;
-
 }
 
 #weather-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#weather-detailed {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,6 +103,12 @@ section {
     position: absolute;
     top: 0px;
     right: 0px
+}
+
+#current-location {
+    position: absolute;
+    top: 0px;
+    left: 0px
 }
 
 .weather img {
