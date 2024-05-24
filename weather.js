@@ -1,7 +1,25 @@
-// import { createRequire } from 'module'
-// const require = createRequire(import.meta.url)
-// require('dotenv').config();
-const apiKey = process.env.OPEN_WEATHER_API_KEY;
+// Function to load the environment variables either from the .env file (live server) or from the hosting (netlify) environment variables
+async function loadEnvVariables() {
+    const isBrowser = typeof window !== 'undefined';
+
+    let apiKey;
+    if (isBrowser) {
+      apiKey = process.env.OPEN_WEATHER_API_KEY;
+      if (!apiKey) {
+        throw new Error("OPEN_WEATHER_API_KEY not found in environment variables.");
+      }
+    } else {
+      const dotenv = require('dotenv');
+      dotenv.config();
+      apiKey = process.env.OPEN_WEATHER_API_KEY;
+    }
+    return apiKey;
+}
+
+const apiKey = await loadEnvVariables()
+
+
+
 
 
 // Function to fetch the user's current location
