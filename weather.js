@@ -1,4 +1,9 @@
-const apiKey = '9e618688ddbe64c211c16dd2d2919dc4';
+// import { createRequire } from 'module'
+// const require = createRequire(import.meta.url)
+// require('dotenv').config();
+const apiKey = process.env.OPEN_WEATHER_API_KEY;
+
+
 // Function to fetch the user's current location
 async function getLocation() {
     // Return a new Promise that resolves with the position or rejects with an error
@@ -39,8 +44,7 @@ function handleLocationError(error) {
 }
 
 // Function to fetch weather data using latitude and longitude
-function getWeather(lat, lon) {
-    const apiKey = '9e618688ddbe64c211c16dd2d2919dc4'; // Your API key
+function getWeather(lat, lon, apiKey) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
     fetch(apiUrl)
@@ -81,7 +85,7 @@ function displayWeather(data) {
 
 // Call the function to fetch and display the weather at set coordinates, then if a button is clicked
 // Showing Osaka coordinates
-getWeather(34.6937, 135.5023)
+getWeather(34.6937, 135.5023, apiKey)
 
 const currentLocButton = document.getElementById("current-location")
 
