@@ -19,6 +19,7 @@
 // const apiKey = await loadEnvVariables()
 
 const apiKey = process.env.OPEN_WEATHER_API_KEY;
+console.log(apiKey)
 
 
 
