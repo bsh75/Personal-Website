@@ -17,13 +17,7 @@
 // }
 
 // const apiKey = await loadEnvVariables()
-// Netlify Function (fetchWeather.js)
-exports.handler = async (event, context) => {
-    const apiKey = process.env.OPEN_WEATHER_API_KEY;
-    // ... (fetch weather data using the API key)
-    console.log(apiKey)
-};
-
+const apiKey = process.env.OPEN_WEATHER_API_KEY;
 
 
 
