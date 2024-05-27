@@ -1,7 +1,12 @@
 // const axios = require("axios");
 // const apiKey = process.env.OPEN_WEATHER_API_KEY;
-console.log("Helloooooooo")
-const apiKey = process.env.VITE_OPEN_WEATHER_API_KEY;
+// fetch('/.netlify/functions/hello-world')
+//   .then(response => response.text())
+//   .then(data => console.log(data)); // Output: "Hello from Netlify Functions!"
+
+fetch('/.netlify/functions/get-weatherAPI')
+.then(response => response.text())
+.then(data => apiKey); // Output: "Hello from Netlify Functions!"
 
 // Function to fetch the user's current location
 async function getLocation() {
