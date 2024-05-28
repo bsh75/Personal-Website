@@ -5,12 +5,14 @@ exports.handler = async (event, context) => {
   const apiKey = process.env.OPEN_WEATHER_API_KEY;
   const latlonString = event.queryStringParameters.latlon;
   const latlon = JSON.parse(decodeURIComponent(latlonString));
+  console.log(latlon)
   const {latitude, longitude} = latlon;
+  console.log(latitude, longitude)
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   try {
     const response = await fetch(apiUrl); // Wait for the response
     const data = await response.json();   // Wait for the JSON parsing
-    console.log("DATA:", data)
+    console.log("RETRIEVING:", data)
     return {
       statusCode: 200,
       body: JSON.stringify(data),

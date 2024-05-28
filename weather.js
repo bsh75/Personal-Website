@@ -50,39 +50,6 @@ async function getLocation() {
 }
 
 
-// Example usage of getLocation() with async/await
-async function getLocAndDisplayWeather() {
-    try {
-        const position = await getLocation(); // Await the result of getLocation
-        const { latitude, longitude } = position.coords;
-        console.log("position: ", position); // Log the position object
-        // Now you can call getWeather with the latitude and longitude
-        getWeather(latitude, longitude);
-    } catch (error) {
-        console.error('Error getting location:', error);
-        handleLocationError(error); // Handle any errors in getting the location
-    }
-}
-
-// Function to handle errors from the Geolocation API
-function handleLocationError(error) {
-    console.error('Geolocation error:', error); // Log the error to the console
-    document.getElementById('weather-summary').innerHTML = '<h2>Unable to retrieve location</h2>'; // Display an error message on the webpage
-}
-
-// Function to fetch weather data using latitude and longitude
-async function getWeather(lat, lon, apiKey) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    try {
-      const response = await fetch(apiUrl); // Wait for the response
-      const data = await response.json();   // Wait for the JSON parsing
-      displayWeather(data);                 // Display the weather data
-    } catch (error) { 
-      console.error('Fetch error:', error);
-      document.getElementById('weather-summary').innerHTML = '<h2>Error loading weather data</h2>';
-    }
-}
-
 // Function to display the weather data on the webpage
 function displayWeather(data) {
     const { name, main, weather, wind } = data; // Destructure the needed data from the response
@@ -110,15 +77,26 @@ function displayWeather(data) {
     weatherDetailed.innerHTML = weatherDetailedHTML; 
 }
 
-// Call the function to fetch and display the weather at set coordinates, then if a button is clicked
-// Showing Osaka coordinates
+
+async function updateWeatherDisplay(latlon) {
+    const weather_data = await fetchWeatherData(latlon);
+    console.log(weather_data)
+    displayWeather(weather_data);
+}
+
+async function getLocAndDisplayWeather() {
+    const position = await getLocation(); // Await the result of getLocation
+    const live_lat_lon = position.coords;
+    console.log(live_lat_lon)
+    updateWeatherDisplay(live_lat_lon)
+}
+
+
+// Start with default location (Osaka) weather showing
 await fetchHelloWorld();
-const position = await getLocation(); // Await the result of getLocation
-const { latitude, longitude } = position.coords;
-console.log({ latitude, longitude });
-const weather_data = await fetchWeatherData({ latitude, longitude });
-displayWeather(weather_data);
-console.log("WEATHER DATA:", weather_data)
+const default_lat_lon = { lattitude: 34.6937, longitude: 135.5023 }
+// await updateWeatherDisplay(default_lat_lon);
+getLocAndDisplayWeather();
 
 // getWeather(34.6937, 135.5023, apiKey)
 
@@ -129,7 +107,7 @@ currentLocButton.addEventListener('click', function () {
         getLocAndDisplayWeather();
         currentLocButton.innerHTML = "Return"
     } else {
-        getWeather(34.6937, 135.5023);
+        pdateWeatherDisplay(default_lat_lon);
         currentLocButton.innerHTML = "My Location"
     }
 })
