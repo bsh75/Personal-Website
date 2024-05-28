@@ -106,7 +106,7 @@ async function updateWeatherDisplay(coords) {
 async function getLocAndDisplayWeather() {
     const position = await getLocation(); // Await the result of getLocation
     const coords = { latitude: position.coords.latitude, longitude: position.coords.longitude }
-    console.log("Recieved coords:", coords)
+    // console.log("Recieved coords:", coords)
     updateWeatherDisplay(coords)
 }
 
