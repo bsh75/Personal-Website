@@ -15,17 +15,35 @@ async function fetchHelloWorld() {
     }
 }
 
-async function fetchWeatherData(latlon) {
+async function fetchWeatherData(coords) {
     try {
-        const encodedLatLon = encodeURIComponent(JSON.stringify(latlon));
-        const response = await fetch(`/.netlify/functions/get-weatherAPI?latlon=${encodedLatLon}`);
-        if (!response.ok) { // Check if the request was successful
-        throw new Error(`Network response was not ok: ${response.status}`);
+        // Construct the URL with latitude and longitude as parameters
+        console.log("Trying to send:", coords)
+        const encoded_coords = JSON.stringify(coords)
+        console.log("Encoded:", encoded_coords)
+
+        const response = await fetch(`/.netlify/functions/get-weatherAPI?coords=${encoded_coords}`);
+        
+        // Check if the response status is OK (status code 200-299)
+        if (!response.ok) { 
+            // Handle specific HTTP error codes
+            if (response.status === 400) {
+                throw new Error("Bad Request: Invalid input or parameters.");
+            } else if (response.status === 500) {
+                throw new Error("Internal Server Error: Something went wrong on the server.");
+            } else {
+                // Generic error message for other status codes
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
         }
+
+        // Parse the response as JSON
         const data = await response.json();
-        return data
+        return data;
     } catch (error) {
-        console.error('Error fetching data:', error); // Handle errors
+        // Log and re-throw the error to be handled by the calling code
+        console.error('Error fetching weather data:', error); 
+        throw error;
     }
 }
 
@@ -78,24 +96,25 @@ function displayWeather(data) {
 }
 
 
-async function updateWeatherDisplay(latlon) {
-    const weather_data = await fetchWeatherData(latlon);
-    console.log(weather_data)
+async function updateWeatherDisplay(coords) {
+    const weather_data = await fetchWeatherData(coords);
+    console.log("Recieved weather data:", weather_data)
     displayWeather(weather_data);
 }
 
+
 async function getLocAndDisplayWeather() {
     const position = await getLocation(); // Await the result of getLocation
-    const live_lat_lon = position.coords;
-    console.log(live_lat_lon)
-    updateWeatherDisplay(live_lat_lon)
+    const coords = { latitude: position.coords.latitude, longitude: position.coords.longitude }
+    console.log("Recieved coords:", coords)
+    updateWeatherDisplay(coords)
 }
 
 
 // Start with default location (Osaka) weather showing
-await fetchHelloWorld();
-const default_lat_lon = { lattitude: 34.6937, longitude: 135.5023 }
-// await updateWeatherDisplay(default_lat_lon);
+// await fetchHelloWorld();
+const osaka_coords = { latitude: 34.6937, longitude: 135.5023 }
+// await updateWeatherDisplay(osaka_coords);
 getLocAndDisplayWeather();
 
 // getWeather(34.6937, 135.5023, apiKey)
@@ -107,7 +126,7 @@ currentLocButton.addEventListener('click', function () {
         getLocAndDisplayWeather();
         currentLocButton.innerHTML = "Return"
     } else {
-        pdateWeatherDisplay(default_lat_lon);
+        updateWeatherDisplay(osaka_coords);
         currentLocButton.innerHTML = "My Location"
     }
 })
