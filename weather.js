@@ -17,14 +17,15 @@ async function fetchHelloWorld() {
 
 async function fetchWeatherData(latlon) {
     try {
-      const response = await fetch(`/.netlify/functions/get-weatherAPI?latlon=${latlon}`);
-      if (!response.ok) { // Check if the request was successful
+        const encodedLatLon = encodeURIComponent(JSON.stringify(latlon));
+        const response = await fetch(`/.netlify/functions/get-weatherAPI?latlon=${encodedLatLon}`);
+        if (!response.ok) { // Check if the request was successful
         throw new Error(`Network response was not ok: ${response.status}`);
-      }
-      const data = await response.json();
-      console.log(data); // Output: Weather data object
+        }
+        const data = await response.json();
+        return data
     } catch (error) {
-      console.error('Error fetching data:', error); // Handle errors
+        console.error('Error fetching data:', error); // Handle errors
     }
 }
 
@@ -112,9 +113,12 @@ function displayWeather(data) {
 // Call the function to fetch and display the weather at set coordinates, then if a button is clicked
 // Showing Osaka coordinates
 await fetchHelloWorld();
-const position = getLocation()
-const latlon = position.coords;
-await fetchWeatherData(latlon);
+const position = await getLocation(); // Await the result of getLocation
+const { latitude, longitude } = position.coords;
+console.log({ latitude, longitude });
+const weather_data = await fetchWeatherData({ latitude, longitude });
+displayWeather(weather_data);
+console.log("WEATHER DATA:", weather_data)
 
 // getWeather(34.6937, 135.5023, apiKey)
 
