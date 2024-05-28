@@ -1,12 +1,33 @@
 // const axios = require("axios");
 // const apiKey = process.env.OPEN_WEATHER_API_KEY;
-// fetch('/.netlify/functions/hello-world')
-//   .then(response => response.text())
-//   .then(data => console.log(data)); // Output: "Hello from Netlify Functions!"
+async function fetchHelloWorld() {
+    try {
+      const response = await fetch('/.netlify/functions/hello-world');
+  
+      if (!response.ok) { // Check if the request was successful
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+  
+      const data = await response.text();
+      console.log(data); // Output: "Hello from Netlify Functions!"
+    } catch (error) {
+      console.error('Error fetching data:', error); // Handle errors
+    }
+}
 
-fetch('/.netlify/functions/get-weatherAPI')
-.then(response => response.text())
-.then(data => apiKey); // Output: "Hello from Netlify Functions!"
+async function fetchWeatherData(latlon) {
+    try {
+      const response = await fetch(`/.netlify/functions/get-weatherAPI?latlon=${latlon}`);
+      if (!response.ok) { // Check if the request was successful
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(data); // Output: Weather data object
+    } catch (error) {
+      console.error('Error fetching data:', error); // Handle errors
+    }
+}
+
 
 // Function to fetch the user's current location
 async function getLocation() {
@@ -26,6 +47,7 @@ async function getLocation() {
         }
     });
 }
+
 
 // Example usage of getLocation() with async/await
 async function getLocAndDisplayWeather() {
@@ -48,16 +70,16 @@ function handleLocationError(error) {
 }
 
 // Function to fetch weather data using latitude and longitude
-function getWeather(lat, lon, apiKey) {
+async function getWeather(lat, lon, apiKey) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-
-    fetch(apiUrl)
-        .then(response => response.json()) // Parse the JSON response
-        .then(data => displayWeather(data)) // Call displayWeather to show the data
-        .catch(error => { // Handle any errors during the fetch
-            console.error('Fetch error:', error);
-            document.getElementById('weather-summary').innerHTML = '<h2>Error loading weather data</h2>';
-        });
+    try {
+      const response = await fetch(apiUrl); // Wait for the response
+      const data = await response.json();   // Wait for the JSON parsing
+      displayWeather(data);                 // Display the weather data
+    } catch (error) { 
+      console.error('Fetch error:', error);
+      document.getElementById('weather-summary').innerHTML = '<h2>Error loading weather data</h2>';
+    }
 }
 
 // Function to display the weather data on the webpage
@@ -89,7 +111,12 @@ function displayWeather(data) {
 
 // Call the function to fetch and display the weather at set coordinates, then if a button is clicked
 // Showing Osaka coordinates
-getWeather(34.6937, 135.5023, apiKey)
+await fetchHelloWorld();
+const position = getLocation()
+const latlon = position.coords;
+await fetchWeatherData(latlon);
+
+// getWeather(34.6937, 135.5023, apiKey)
 
 const currentLocButton = document.getElementById("current-location")
 
